@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Which party do you support?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 100px;
+        }
+        .buttons {
+            margin-top: 50px;
+        }
+        #bnpBtn {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #laughImg {
+            display: none;
+            margin-top: 50px;
+        }
+        #laughImg img {
+            width: 400px; /* Adjust size as necessary */
+        }
+    </style>
+</head>
+<body>
+    <h1>Which party do you support?</h1>
+    <div class="buttons">
+        <button id="alBtn">Awami League</button>
+        <button id="bnpBtn">BNP</button>
+    </div>
+    <div id="laughImg">
+        <img src="https://i.imgur.com/meFnCTU.jpeg">
+    </div>
+    <script>
+        const bnpBtn = document.getElementById("bnpBtn");
+        const alBtn = document.getElementById("alBtn");
+        const laughImg = document.getElementById("laughImg");
+
+        // Make the BNP button move around when hovered over
+        bnpBtn.addEventListener("mouseover", () => {
+            const x = Math.random() * (window.innerWidth - bnpBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - bnpBtn.offsetHeight);
+            bnpBtn.style.left = `${x}px`;
+            bnpBtn.style.top = `${y}px`;
+        });
+
+        // Show laughing image when Awami League is clicked
+        alBtn.addEventListener("click", () => {
+            laughImg.style.display = "block";
+        });
+    </script>
+</body>
+</html>
