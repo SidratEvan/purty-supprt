@@ -1,58 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Which party do you support?</title>
-    <style>
-        body {
-            text-align: center;
-            font-family: Arial, sans-serif;
-            margin-top: 100px;
-        }
-        .buttons {
-            margin-top: 50px;
-        }
-        #bnpBtn {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        #laughImg {
-            display: none;
-            margin-top: 50px;
-        }
-        #laughImg img {
-            width: 400px; /* Adjust size as necessary */
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Party Support</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .container {
+      display: inline-block;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    .no-hover {
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+    .no-hover:hover {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+    #hasina-image {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-    <h1>Which party do you support?</h1>
-    <div class="buttons">
-        <button id="alBtn">Awami League</button>
-        <button id="bnpBtn">BNP</button>
-    </div>
-    <div id="laughImg">
-        <img src="https://i.imgur.com/meFnCTU.jpeg">
-    </div>
-    <script>
-        const bnpBtn = document.getElementById("bnpBtn");
-        const alBtn = document.getElementById("alBtn");
-        const laughImg = document.getElementById("laughImg");
 
-        // Make the BNP button move around when hovered over
-        bnpBtn.addEventListener("mouseover", () => {
-            const x = Math.random() * (window.innerWidth - bnpBtn.offsetWidth);
-            const y = Math.random() * (window.innerHeight - bnpBtn.offsetHeight);
-            bnpBtn.style.left = `${x}px`;
-            bnpBtn.style.top = `${y}px`;
-        });
+  <h1>Which party do you support?</h1>
 
-        // Show laughing image when Awami League is clicked
-        alBtn.addEventListener("click", () => {
-            laughImg.style.display = "block";
-        });
-    </script>
+  <div class="container">
+    <button id="yes-btn">Awami League</button>
+    <button id="no-btn" class="no-hover">BNP</button>
+  </div>
+
+  <div>
+    <img id="hasina-image" src="https://i.imgur.com/meFnCTU.jpeg" alt="Sheikh Hasina Laughing" width="300">
+  </div>
+
+  <script>
+    document.getElementById("yes-btn").addEventListener("click", function() {
+      document.getElementById("hasina-image").style.display = "block";
+    });
+
+    document.getElementById("no-btn").addEventListener("mouseover", function() {
+      this.style.left = Math.random() * (window.innerWidth - this.offsetWidth) + "px";
+      this.style.top = Math.random() * (window.innerHeight - this.offsetHeight) + "px";
+    });
+  </script>
+
 </body>
 </html>
